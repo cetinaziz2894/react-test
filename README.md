@@ -1,4 +1,4 @@
-# react-test
+# React-Test
 React Test
 
 <!-- GETTING STARTED -->
