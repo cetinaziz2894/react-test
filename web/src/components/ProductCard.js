@@ -22,30 +22,30 @@ export default function ProductCard({product}) {
     }
 
     return (
-        <div className="product-card" onClick={(e) => handleClick(e, product)}>
+        <div className="product-card" data-testid="product_card" onClick={(e) => handleClick(e, product)}>
             <div className="like-icon">
                 {
                     product.isFavorite ===  true 
-                    ? <i className='bx bxs-heart bx-border-circle' style={{"color":"red"}} onClick={(e) => {changeFavourite(e,product)}}></i>
+                    ? <i className='bx bxs-heart bx-border-circle' data-testid="red_icon" style={{"color":"red"}} onClick={(e) => {changeFavourite(e,product)}}></i>
                     : <i className='bx bxs-heart bx-border-circle' onClick={(e) => {changeFavourite(e,product)}}></i>
                 }
             </div>
             <div className="product-image">
-                <img className="active" src={`http://localhost:3000//img/${product.imgName}.jpg`} alt="blue" />
+                <img className="active" src={`http://localhost:3000//img/${product.imgName}.jpg`} alt={product.imgName} />
             </div>
             <div className="product-details">
-                <div className="product-title">
-                    <h4 className="product-name">{product.title}</h4>
+                <div className="product_title">
+                    <h4 data-testid="product_title" className="product-name">{product.title}</h4>
                 </div>
-                <div className="product-price">
-                        <span className="price">{product.price} {product.currency}</span>
+                <div className="product_price">
+                        <span className="price" data-testid="product_price">{product.price} {product.currency}</span>
                 </div>
                 <div className="shipment-details">
                     { product.shippmentState !== "Ücretli Kargo" 
-                        ? <i className="bx bxs-truck"></i>
+                        ? <i className="bx bxs-truck" data-testid="shipment_icon"></i>
                         : null
                     }
-                        <span>{product.shippmentState}</span>
+                        <span data-testid="product_shippmentState">{product.shippmentState}</span>
                 </div>
             </div>
         </div>
